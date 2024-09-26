@@ -1,0 +1,47 @@
+Caso de prueba 1 - Validar que el campo "numCliente" solo permita int
+
+1- Colocar body correspondiente
+2- modificar el campo  "numCliente" con un valor string
+3- Enviar
+
+Se espera que responda con un mensaje de error (puede ser un 400)
+
+
+Caso de prueba 2 - Validar una insersion correcta
+
+1- Colocar body con los datos correctos
+2- Enviar
+3- Validar en la db resultado
+
+Se espera que responda correctamente un 201 con:
+{
+	"idProceso": 0,
+	"cantidadErrores": 0,
+	"cantidadOperacionesProcesadas": 0
+	}
+
+Caso de prueba 3 - Validar mensaje de error cuadno el servicio no responda correctamente
+Precondicion = forzar la caida del sistema
+	1- Colocar body con los datos correctos
+	2- Enviar
+	
+	Se espera que responda status code 500 y el mensaje correspondiente (ej "Por favor intentar mas tarde, servicio no disponible", para el FE, "El servicio xxx no se encuentra disponible" , para el BE) 
+	
+	Caso de prueba 4 - Validar que no se envie el campo mandatorio: codProducto
+
+	1- Colocar body con los datos correctos, exceptuando el campo "codProducto"
+	2- Enviar
+	
+	Se espera que responda status code 400 con el mensaje correspondiente (ej "Falto ingresar el campo codProducto")
+	
+	Caso de prueba 5 - Validar la respuesta tenga el formato correcto
+
+	1- Colocar body con los datos correctos
+	2- Enviar
+	
+	Se espera que responda con el body {
+		"idProceso": 0,
+		"cantidadErrores": 0,
+		"cantidadOperacionesProcesadas": 0
+		}
+		NOTA Variar el body para poder recibir diferentes respuestas. Por ejemplo enviar mas de un producto para que uno falle y otro sea correcto
